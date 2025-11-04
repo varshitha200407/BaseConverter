@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Base Conversion Tool</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>Base Conversion Tool</h1>
+
     <label for="number">Enter a Number:</label>
     <input type="text" id="number" placeholder="Enter number">
 
-    <label for="base">Select Input Base:</label>
-    <select id="base">
+    <label for="inputBase">Select Input Base:</label>
+    <select id="inputBase">
       <option value="2">Binary</option>
       <option value="8">Octal</option>
       <option value="10" selected>Decimal</option>
       <option value="16">Hexadecimal</option>
     </select>
 
-    <button onclick="convert()">Convert</button>
-
-    <div id="results">
-      <p><strong>Binary:</strong> <span id="binary"></span></p>
-      <p><strong>Octal:</strong> <span id="octal"></span></p>
-      <p><strong>Decimal:</strong> <span id="decimal"></span></p>
-      <p><strong>Hexadecimal:</strong> <span id="hexadecimal"></span></p>
+    <label for="outputBases">Convert to (choose one or multiple):</label>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <select id="outputBases" multiple size="6" style="flex:1;"></select>
+      <div style="min-width:110px;">
+        <label style="display:block; font-weight:600; margin-bottom:6px;">Quick:</label>
+        <button id="selectAllBtn" type="button">Select All</button>
+        <button id="clearBtn" type="button" style="margin-top:8px;">Clear</button>
+      </div>
     </div>
+
+    <button id="convertBtn">Convert</button>
+
+    <div id="results" aria-live="polite"></div>
   </div>
 
   <script src="script.js"></script>
